@@ -1,0 +1,37 @@
+[
+    {
+        "date": "2024-07-14",
+        "description": "example1",
+        "cashAdd": 15,
+        "expense": 10,
+        "balanceRs": 2000
+    },
+    {
+        "date": "2024-07-14",
+        "description": "example2",
+        "cashAdd": 20,
+        "expense": 10,
+        "balanceRs": 500
+    },
+    {
+        "date": "2024-07-14",
+        "description": "example3",
+        "cashAdd": 30,
+        "expense": 15,
+        "balanceRs": 200
+    },
+    {
+        "date": "2024-07-14",
+        "description": "example4",
+        "cashAdd": 40,
+        "expense": 20,
+        "balanceRs": 800
+    },
+    {
+        "date": "2024-07-14",
+        "description": "example5",
+        "cashAdd": 50,
+        "expense": 25,
+        "balanceRs": 2400
+    }
+]

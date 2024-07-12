@@ -1,0 +1,28 @@
+.flex-wrapper {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  /* Original commented-out styles removed
+  #submit {
+    background-color: limegreen;
+  }
+  
+  .jumbotron {
+    margin-top: 50px;
+    background-color: snow;
+  }
+  
+  .card {
+    margin-left: 25px;
+    margin-right: 25px;
+    background-color: orchid;
+  }
+  
+  hr {
+    width: 70%;
+  }
+  */
+  
