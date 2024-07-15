@@ -1,17 +1,17 @@
 import React, { useContext } from 'react';
 import {
-  ProSidebar,
+  Sidebar,
   Menu,
   MenuItem,
-  SidebarHeader,
-  SidebarFooter,
-  SidebarContent,
+  useProSidebar,
 } from 'react-pro-sidebar';
 import { FaTachometerAlt, FaGem, FaMoneyBillWave } from 'react-icons/fa';
-import { NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 import { ContextUser } from '../Context/UserContext';
 
+
 const Aside = ({ image, collapsed, rtl, toggled, handleToggleSidebar }) => {
+  const { collapseSidebar, toggleSidebar } = useProSidebar();
   const value = useContext(ContextUser);
 
   const handleClick = () => {
@@ -21,70 +21,55 @@ const Aside = ({ image, collapsed, rtl, toggled, handleToggleSidebar }) => {
   };
 
   const menu = () => {
-    const userRole = localStorage.getItem("tokenRole");
+    const userRole = localStorage.getItem('tokenRole');
 
     return (
       <>
-        {userRole === "superUser" ? (
+        {userRole === 'superUser' ? (
           <MenuItem icon={<FaMoneyBillWave />}>
             <NavLink to="/adduser">Add User</NavLink>
           </MenuItem>
-        ) : (
-          null
-        )}
+        ) : null}
       </>
     );
   };
 
   return (
-    <ProSidebar
+    <Sidebar
       rtl={rtl}
       collapsed={collapsed}
       toggled={toggled}
       breakPoint="md"
       onToggle={handleToggleSidebar}
     >
-      <SidebarHeader>
-        <div
-          style={{
-            padding: '24px',
-            textTransform: 'uppercase',
-            fontWeight: 'bold',
-            fontSize: 14,
-            letterSpacing: '1px',
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-            whiteSpace: 'nowrap',
-          }}
-        >
-          Balance Sheet
-        </div>
-      </SidebarHeader>
+      <div
+        style={{
+          padding: '24px',
+          textTransform: 'uppercase',
+          fontWeight: 'bold',
+          fontSize: 14,
+          letterSpacing: '1px',
+          overflow: 'hidden',
+          textOverflow: 'ellipsis',
+          whiteSpace: 'nowrap',
+        }}
+      >
+        Balance Sheet
+      </div>
 
-      <SidebarContent>
-        <Menu iconShape="circle">
-          <MenuItem icon={<FaGem />}>
-            <NavLink to="/dashboard">Dashboard</NavLink>
-          </MenuItem>
-        </Menu>
+      <Menu iconShape="circle">
+        <MenuItem icon={<FaGem />}>
+          <NavLink to="/dashboard">Dashboard</NavLink>
+        </MenuItem>
+        {menu()}
+      </Menu>
 
-        <Menu iconShape="circle">
-          {menu()}
-        </Menu>
-
-      </SidebarContent>
-
-      <SidebarFooter style={{ textAlign: 'center' }}>
-        <Menu iconShape="circle">
-          <MenuItem
-            icon={<FaTachometerAlt />}
-            onClick={handleClick}
-          >
-            <NavLink to="/">Log Out</NavLink>
-          </MenuItem>
-        </Menu>
-      </SidebarFooter>
-    </ProSidebar>
+      <Menu iconShape="circle">
+        <MenuItem icon={<FaTachometerAlt />} onClick={handleClick}>
+          <NavLink to="/">Log Out</NavLink>
+        </MenuItem>
+      </Menu>
+    </Sidebar>
   );
 };
 
